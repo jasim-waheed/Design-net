@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DesignNest Admin</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: "#1A1625",
+          indigo: { DEFAULT: "#6C5CE7", dark: "#4834D4" },
+          cyan: { DEFAULT: "#00CEC9" },
+          coral: { DEFAULT: "#FF6B6B" },
+          amber: { DEFAULT: "#FFD93D" },
+          cloud: "#F8F7FC",
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="style.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-body">
+
+<!-- Login screen -->
+<main id="loginScreen" class="min-h-screen flex items-center justify-center bg-cloud px-6">
+  <form id="loginForm" class="bg-white rounded-2xl border border-black/5 p-8 w-full max-w-sm">
+    <div class="w-12 h-12 rounded-xl gradient-btn flex items-center justify-center mb-5">
+      <i data-lucide="lock" class="w-5 h-5 text-white"></i>
+    </div>
+    <h1 class="font-display text-xl font-bold">Admin Login</h1>
+    <p class="text-sm text-ink/50 mt-1">DesignNest message dashboard</p>
+    <input id="passwordInput" type="password" placeholder="Enter admin password"
+      class="mt-6 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo" />
+    <p id="loginError" class="hidden text-sm text-coral mt-2">Incorrect password. Please try again.</p>
+    <button type="submit" class="mt-4 w-full gradient-btn text-white font-semibold py-2.5 rounded-xl hover:opacity-90 transition-opacity">Login</button>
+  </form>
+</main>
+
+<!-- Dashboard -->
+<main id="dashboard" class="hidden min-h-screen bg-cloud">
+  <header class="bg-white border-b border-black/5">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between flex-wrap gap-3">
+      <span class="flex items-center gap-2 font-display font-bold text-lg">
+        <img src="images/logo.png" alt="DesignNest logo" class="h-8 w-auto object-contain" />
+        Design<span class="gradient-text">Nest</span> Admin
+      </span>
+      <div class="flex items-center gap-4">
+        <span id="cloudStatus" class="hidden sm:flex items-center gap-1.5 text-xs font-medium"></span>
+        <button id="notifBtn" class="text-sm font-medium flex items-center gap-1.5 text-ink/60 hover:text-ink">
+          <i data-lucide="bell" class="w-4 h-4"></i> Enable notifications
+        </button>
+        <button id="logoutBtn" class="text-sm font-medium text-ink/60 hover:text-ink flex items-center gap-1.5">
+          <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <div id="cloudNotice" class="hidden mb-8 bg-white border border-black/10 rounded-2xl p-4 text-sm text-ink/60 flex items-start gap-2.5">
+      <i data-lucide="cloud-off" class="w-4 h-4 text-coral mt-0.5 shrink-0"></i>
+      <span>Cloud sync isn't connected yet, so messages and projects are only saved in this browser. Fill in <code>js/firebase.js</code> so everything syncs live for all visitors and devices.</span>
+    </div>
+
+    <div class="flex gap-3 mb-8">
+      <button id="tabMessages" class="px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 transition-colors gradient-btn text-white">
+        <i data-lucide="message-square" class="w-[15px] h-[15px]"></i> Messages
+        <span id="unreadBadge" class="hidden bg-coral text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"></span>
+      </button>
+      <button id="tabProjects" class="px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 transition-colors bg-white border border-black/10 text-ink/60">
+        <i data-lucide="folder-kanban" class="w-[15px] h-[15px]"></i> Projects
+      </button>
+    </div>
+
+    <!-- Messages tab -->
+    <section id="messagesTab">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <h1 class="font-display text-2xl font-bold">Messages <span id="messageCount" class="text-ink/40 font-normal text-lg"></span></h1>
+        <div class="flex items-center gap-4">
+          <button id="markAllReadBtn" class="hidden text-sm text-indigo font-medium">Mark all read</button>
+          <button id="clearMessagesBtn" class="hidden text-sm text-coral font-medium flex items-center gap-1.5">
+            <i data-lucide="trash-2" class="w-[15px] h-[15px]"></i> Clear all
+          </button>
+        </div>
+      </div>
+      <div id="messagesList"></div>
+      <div class="mt-8 text-xs text-ink/40 leading-relaxed">
+        <span id="cloudSyncNote"></span>
+        Turn on desktop notifications above to get alerted here, and fill in your free EmailJS details in <code>js/emailConfig.js</code> to also receive every message on your Gmail.
+      </div>
+    </section>
+
+    <!-- Projects tab -->
+    <section id="projectsTab" class="hidden">
+      <h1 class="font-display text-2xl font-bold mb-6">Add Project</h1>
+      <form id="addProjectForm" class="bg-white rounded-2xl border border-black/5 p-6 space-y-4 mb-10">
+        <div>
+          <label class="text-sm font-medium">Project Title</label>
+          <input id="pTitle" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo" placeholder="e.g. Cafe Aroma — Menu Poster" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium">Category</label>
+            <select id="pCategory" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo bg-white">
+              <option>Graphic Design</option>
+              <option>Full Stack</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Tag</label>
+            <select id="pTag" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo bg-white">
+              <option>Company</option>
+              <option>Freelance</option>
+              <option>Local Business</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium flex items-center gap-1.5"><i data-lucide="image-plus" class="w-[15px] h-[15px]"></i> Project Image</label>
+          <input id="pImage" type="file" accept="image/*" class="mt-1.5 w-full text-sm" />
+          <img id="pImagePreview" class="hidden mt-3 rounded-xl w-full max-w-xs aspect-video object-cover border border-black/10" alt="Preview" />
+        </div>
+        <button type="submit" class="w-full gradient-btn text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <i data-lucide="plus" class="w-4 h-4"></i> Add Project To Website
+        </button>
+      </form>
+
+      <h2 class="font-display text-lg font-bold mb-4">Your Added Projects <span id="projectCount" class="text-ink/40 font-normal text-base"></span></h2>
+      <div id="projectsList"></div>
+    </section>
+  </div>
+</main>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DesignNest — Graphic Design & Full Stack Development</title>
+<meta name="description" content="DesignNest — Creative graphic design and full stack development services. Logos, posters, branding, websites and web apps." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: "#1A1625",
+          indigo: { DEFAULT: "#6C5CE7", dark: "#4834D4" },
+          cyan: { DEFAULT: "#00CEC9" },
+          coral: { DEFAULT: "#FF6B6B" },
+          amber: { DEFAULT: "#FFD93D" },
+          cloud: "#F8F7FC",
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="style.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-body">
+<main>
+
+  <!-- Navbar -->
+  <header id="navbar" class="sticky top-0 z-50 bg-cloud/80 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <img src="images/logo.png" alt="DesignNest logo" class="h-9 w-auto object-contain" />
+        <span class="font-display font-extrabold text-xl">Design<span class="gradient-text">Nest</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+        <a href="#home" class="hover:text-ink transition-colors">Home</a>
+        <a href="#about" class="hover:text-ink transition-colors">About</a>
+        <a href="#services" class="hover:text-ink transition-colors">Services</a>
+        <a href="#portfolio" class="hover:text-ink transition-colors">Portfolio</a>
+        <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-flex gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity">Let's Talk</a>
+      <button id="menuBtn" class="md:hidden" aria-label="Menu">
+        <i data-lucide="menu" id="menuIconOpen"></i>
+        <i data-lucide="x" id="menuIconClose" class="hidden"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 flex-col gap-3 text-sm font-medium">
+      <a href="#home" class="py-1">Home</a>
+      <a href="#about" class="py-1">About</a>
+      <a href="#services" class="py-1">Services</a>
+      <a href="#portfolio" class="py-1">Portfolio</a>
+      <a href="#contact" class="py-1">Contact</a>
+      <a href="#contact" class="gradient-btn text-white text-center py-2.5 rounded-full mt-2">Let's Talk</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="max-w-7xl mx-auto px-6 pt-16 pb-20 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="inline-block text-xs font-semibold tracking-wide uppercase text-indigo bg-indigo/10 px-3 py-1 rounded-full mb-5">
+        Graphic Design &amp; Full Stack Development
+      </span>
+      <h1 class="font-display text-4xl md:text-5xl font-extrabold leading-tight">
+        Creative Designs <br />
+        For <span class="gradient-text">Modern Brands</span>
+      </h1>
+      <p class="mt-5 text-ink/60 text-base leading-relaxed max-w-md">
+        I'm a graphic designer and full stack developer helping businesses grow with creative design and powerful websites.
+      </p>
+      <div class="mt-8 flex items-center gap-4">
+        <a href="#portfolio" class="gradient-btn text-white font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2 hover:opacity-90 transition-opacity">
+          View Portfolio <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+        </a>
+        <a href="#contact" class="font-semibold px-6 py-3 rounded-full border border-ink/15 hover:bg-white transition-colors">Contact Me</a>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="rounded-3xl bg-white shadow-xl shadow-indigo/10 p-6 border border-black/5">
+        <div class="rounded-2xl overflow-hidden aspect-video relative bg-white flex items-center justify-center">
+          <img src="images/logo.png" alt="DesignNest" class="object-contain p-6 max-h-full max-w-full" />
+        </div>
+        <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+          <div class="flex flex-col items-center gap-1.5 text-xs text-ink/60">
+            <div class="w-9 h-9 rounded-full bg-cloud flex items-center justify-center"><i data-lucide="pen-tool" class="w-4 h-4 text-indigo"></i></div>
+            Logo Design
+          </div>
+          <div class="flex flex-col items-center gap-1.5 text-xs text-ink/60">
+            <div class="w-9 h-9 rounded-full bg-cloud flex items-center justify-center"><i data-lucide="layers" class="w-4 h-4 text-indigo"></i></div>
+            Brand Identity
+          </div>
+          <div class="flex flex-col items-center gap-1.5 text-xs text-ink/60">
+            <div class="w-9 h-9 rounded-full bg-cloud flex items-center justify-center"><i data-lucide="code-2" class="w-4 h-4 text-indigo"></i></div>
+            Web Development
+          </div>
+        </div>
+      </div>
+      <div class="absolute -z-10 -top-8 -right-8 w-56 h-56 rounded-full bg-cyan/20 blur-3xl"></div>
+      <div class="absolute -z-10 -bottom-8 -left-8 w-56 h-56 rounded-full bg-coral/20 blur-3xl"></div>
+    </div>
+  </section>
+
+  <!-- Feature strip -->
+  <section class="border-y border-black/5 bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-5 gap-6">
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center gradient-btn"><i data-lucide="pen-tool" class="w-[18px] h-[18px] text-white"></i></div>
+        <span class="text-sm font-medium text-ink/70">Logo Design</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center gradient-btn"><i data-lucide="layers" class="w-[18px] h-[18px] text-white"></i></div>
+        <span class="text-sm font-medium text-ink/70">Brand Identity</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center gradient-btn"><i data-lucide="smartphone" class="w-[18px] h-[18px] text-white"></i></div>
+        <span class="text-sm font-medium text-ink/70">UI / UX Design</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center gradient-btn"><i data-lucide="code-2" class="w-[18px] h-[18px] text-white"></i></div>
+        <span class="text-sm font-medium text-ink/70">Web Development</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center gradient-btn"><i data-lucide="shopping-bag" class="w-[18px] h-[18px] text-white"></i></div>
+        <span class="text-sm font-medium text-ink/70">E-commerce</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-14 items-center">
+    <div>
+      <span class="text-xs font-semibold tracking-wide uppercase text-cyan">About Me</span>
+      <h2 class="font-display text-3xl font-bold mt-3">Design and Code, <span class="gradient-text">Under One Roof</span></h2>
+      <p class="mt-5 text-ink/60 leading-relaxed">
+        DesignNest is a creative studio offering both graphic design and full stack web development. From a logo that tells your brand's story to a website that runs your business, everything is built with care, creativity, and clean code.
+      </p>
+      <div class="mt-6 grid grid-cols-2 gap-4">
+        <div class="flex items-center gap-2 text-sm text-ink/70"><i data-lucide="check-circle-2" class="w-[18px] h-[18px] text-indigo shrink-0"></i>15+ Projects Completed</div>
+        <div class="flex items-center gap-2 text-sm text-ink/70"><i data-lucide="check-circle-2" class="w-[18px] h-[18px] text-indigo shrink-0"></i>Fast Turnaround</div>
+        <div class="flex items-center gap-2 text-sm text-ink/70"><i data-lucide="check-circle-2" class="w-[18px] h-[18px] text-indigo shrink-0"></i>Affordable Pricing</div>
+        <div class="flex items-center gap-2 text-sm text-ink/70"><i data-lucide="check-circle-2" class="w-[18px] h-[18px] text-indigo shrink-0"></i>Unlimited Revisions</div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rounded-2xl overflow-hidden aspect-square relative">
+        <img src="images/p3.png" alt="Salon poster sample" class="w-full h-full object-cover" />
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-square relative mt-8">
+        <img src="images/p4.png" alt="Gym poster sample" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-white border-y border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="text-center max-w-xl mx-auto">
+        <span class="text-xs font-semibold tracking-wide uppercase text-coral">Services</span>
+        <h2 class="font-display text-3xl font-bold mt-3">What I Offer</h2>
+      </div>
+      <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-2xl border border-black/5 p-6 hover:shadow-lg hover:shadow-indigo/10 transition-shadow">
+          <div class="w-11 h-11 rounded-xl gradient-btn flex items-center justify-center mb-4"><i data-lucide="pen-tool" class="w-5 h-5 text-white"></i></div>
+          <h3 class="font-display font-bold">Logo & Brand Identity</h3>
+          <p class="mt-2 text-sm text-ink/60 leading-relaxed">Memorable logos and complete brand kits that make your business recognizable.</p>
+        </div>
+        <div class="rounded-2xl border border-black/5 p-6 hover:shadow-lg hover:shadow-indigo/10 transition-shadow">
+          <div class="w-11 h-11 rounded-xl gradient-btn flex items-center justify-center mb-4"><i data-lucide="palette" class="w-5 h-5 text-white"></i></div>
+          <h3 class="font-display font-bold">Posters & Social Graphics</h3>
+          <p class="mt-2 text-sm text-ink/60 leading-relaxed">Eye-catching posters, banners and social media posts that get attention.</p>
+        </div>
+        <div class="rounded-2xl border border-black/5 p-6 hover:shadow-lg hover:shadow-indigo/10 transition-shadow">
+          <div class="w-11 h-11 rounded-xl gradient-btn flex items-center justify-center mb-4"><i data-lucide="code-2" class="w-5 h-5 text-white"></i></div>
+          <h3 class="font-display font-bold">Full Stack Development</h3>
+          <p class="mt-2 text-sm text-ink/60 leading-relaxed">Modern, responsive websites and web apps built with the latest technology.</p>
+        </div>
+        <div class="rounded-2xl border border-black/5 p-6 hover:shadow-lg hover:shadow-indigo/10 transition-shadow">
+          <div class="w-11 h-11 rounded-xl gradient-btn flex items-center justify-center mb-4"><i data-lucide="shopping-bag" class="w-5 h-5 text-white"></i></div>
+          <h3 class="font-display font-bold">E-commerce Solutions</h3>
+          <p class="mt-2 text-sm text-ink/60 leading-relaxed">Online stores that are fast, secure, and built to convert visitors into customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="text-center max-w-xl mx-auto">
+      <span class="text-xs font-semibold tracking-wide uppercase text-indigo">Portfolio</span>
+      <h2 class="font-display text-3xl font-bold mt-3">Selected Work</h2>
+      <p class="mt-3 text-ink/60">A mix of company, freelance and local business projects.</p>
+    </div>
+    <div id="categoryButtons" class="mt-8 flex justify-center gap-3 flex-wrap"></div>
+    <div id="portfolioGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-white border-y border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="text-center max-w-xl mx-auto">
+        <span class="text-xs font-semibold tracking-wide uppercase text-cyan">Testimonials</span>
+        <h2 class="font-display text-3xl font-bold mt-3">What Clients Say</h2>
+      </div>
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-cloud p-6">
+          <p class="text-sm text-ink/70 leading-relaxed">&ldquo;The poster design brought so many new customers on our opening day. Very professional work.&rdquo;</p>
+          <div class="mt-5"><p class="font-display font-bold text-sm">Ahmed Raza</p><p class="text-xs text-ink/50">Owner, Sweet Corner Bakery</p></div>
+        </div>
+        <div class="rounded-2xl bg-cloud p-6">
+          <p class="text-sm text-ink/70 leading-relaxed">&ldquo;Delivered fast and exactly what we asked for. Will definitely order again.&rdquo;</p>
+          <div class="mt-5"><p class="font-display font-bold text-sm">Sara Khan</p><p class="text-xs text-ink/50">Owner, Glow Beauty Salon</p></div>
+        </div>
+        <div class="rounded-2xl bg-cloud p-6">
+          <p class="text-sm text-ink/70 leading-relaxed">&ldquo;Great communication and a design that really matches our brand energy.&rdquo;</p>
+          <div class="mt-5"><p class="font-display font-bold text-sm">Bilal Hussain</p><p class="text-xs text-ink/50">Founder, Iron House Gym</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-14">
+    <div>
+      <span class="text-xs font-semibold tracking-wide uppercase text-coral">Contact</span>
+      <h2 class="font-display text-3xl font-bold mt-3">Let's Work Together</h2>
+      <p class="mt-4 text-ink/60 leading-relaxed max-w-sm">Send a message using the form, or reach out directly on any platform below.</p>
+      <div id="socialLinks" class="mt-8 flex flex-wrap gap-3"></div>
+      <div class="mt-8 text-sm text-ink/50 leading-relaxed">
+        Messages sent here are saved for the site admin and shown live in the Admin Panel (synced across every device via Firebase — see README).
+        <br />
+        To also get every message emailed straight to your Gmail, fill in your free EmailJS details in <code>js/emailConfig.js</code>.
+      </div>
+    </div>
+
+    <form id="contactForm" class="bg-white rounded-2xl border border-black/5 p-6 space-y-4">
+      <div>
+        <label class="text-sm font-medium">Name</label>
+        <input id="cName" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo" placeholder="Your name" />
+      </div>
+      <div>
+        <label class="text-sm font-medium">WhatsApp / Email</label>
+        <input id="cContact" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo" placeholder="How can we reach you?" />
+      </div>
+      <div>
+        <label class="text-sm font-medium">Message</label>
+        <textarea id="cMessage" rows="4" class="mt-1.5 w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-indigo" placeholder="Tell us about your project"></textarea>
+      </div>
+      <button type="submit" class="w-full gradient-btn text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+        Send Message <i data-lucide="send" class="w-4 h-4"></i>
+      </button>
+      <p id="sentMsg" class="hidden text-sm text-center text-cyan font-medium">Message sent. We'll get back to you soon.</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-white/70">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="flex items-center gap-2 font-display font-bold text-white">
+        <img src="images/logo.png" alt="DesignNest logo" class="h-7 w-auto object-contain rounded bg-white/90 p-0.5" />
+        Design<span class="text-cyan">Nest</span>
+      </span>
+      <p id="footerYear" class="text-sm"></p>
+      <a href="admin/index.html" class="text-xs text-white/40 hover:text-white/70">Admin</a>
+    </div>
+  </footer>
+
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F8F7FC;
+  color: #1A1625;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6C5CE7, #00CEC9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-btn {
+  background: linear-gradient(90deg, #6C5CE7, #00CEC9);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #6C5CE7;
+  border-radius: 8px;
+}
+
+/* helpers that Tailwind's play-cdn build doesn't ship by default */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  stroke: currentColor;
+}
